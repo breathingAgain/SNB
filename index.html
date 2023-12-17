@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="theme-8bit-grayscale">
+  <head>
+   
+  <title>SNB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A minimal CSS framework that uses no classes to give pages a retro look.">
+
+  <script>
+    function showDialog() {
+      var dialog = document.querySelector('#dialog');
+      dialog.setAttribute('open', true);
+
+      setTimeout(() => {
+        dialog.removeAttribute('open');
+      }, 3000);
+    }
+
+    function changeTheme(color) {
+      var html = document.querySelector('html');
+      
+      for (var c of html.classList.values()) html.classList.remove(c);
+
+      html.classList.add(`theme-8bit-${color}`);
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,600;1,300;1,600&amp;display=swap" rel="stylesheet">
+  <link id="css-8bit-style" rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --font-family: 'Source Code Pro', monospace;
+    }
+  </style>
+
+
+  </head>
+  <body>
+    <header>
+    <h4>SNB <strong>sticky</strong>.</h4>
+    <button onclick="showDialog()">That is SNB?</button>
+    </header>
+
+    <aside>
+        <p><a href="https://discord.gg/3S7mEfnv">Discord</a></p>
+        <p><a href="https://twitter.com/SolanaNBS">Twitter</a></p>
+    </aside>
+    <main>
+        <audio id="backgroundMusic" autoplay loop>
+        <source src="hotline_miami - Paris.mp3" type="audio/mp3">
+    </audio>
+
+    <button id="audioControl">Music off</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('backgroundMusic');
+            var audioControlButton = document.getElementById('audioControl');
+
+            var isMusicEnabled = localStorage.getItem('isMusicEnabled') === 'true';
+
+            if (isMusicEnabled) {
+                audioControlButton.textContent = 'Music off';
+            }
+
+            audioControlButton.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                    audioControlButton.textContent = 'Music off';
+                    localStorage.setItem('isMusicEnabled', 'true');
+                } else {
+                    audio.pause();
+                    audioControlButton.textContent = 'Music on';
+                    localStorage.setItem('isMusicEnabled', 'false');
+                }
+            });
+        });
+    </script>
+        <dialog id="dialog">
+            <p>▁▂▄▅▇ First voxel+pixel culture shift on the Solana blockchain. ▇▅▄▂▁</p>
+        </dialog>
+        <h1>SNB culture.</h1>
+        <p>
+            <mark>20.12</mark> <a href="https://taiyorobotics.com">Mint on Taiyo Launchpad.</a> Fuck the degens. Fuck the meta. 
+         </p>
+        <hr>
+
+        <p>We're here to stay. We're SNB. We're a brand. We're a cultural movement.</p>
+        <p><mark>LFG!</mark> </p>
+        <hr>
+
+         <div class="parent">
+            <img src=1.gif>
+            <img src=2.gif>
+            <img src=3.gif>
+            <img src=4.gif>
+            <img src=5.gif>
+            <img src=6.gif>
+            <img src=7.gif>
+            <img src=8.gif>
+            <img src=9.gif>
+         </div>
+
+         <hr>
+         <p>WANT MORE? GO TO:<a href="https://discord.gg/3S7mEfnv"><mark>CLICK</mark></a></p>
+         <hr>
+
+         <p><a href="https://discord.gg/3S7mEfnv">Discord         </a><a href="https://twitter.com/SolanaNBS">Twitter</a></p>
+        
+         <hr>
+    </main>
+  </body>
+</html>
